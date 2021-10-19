@@ -85,21 +85,21 @@ def game_func():
             if event.type == pygame.QUIT:
                 game_over = True
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT and direction != "right":
+                if (event.key == pygame.K_LEFT or event.key == pygame.K_a) and direction != "right":
                     x_new = -snake_block
                     y_new = 0
                     direction = "left"
-                elif event.key == pygame.K_RIGHT and direction != "left":
+                elif (event.key == pygame.K_RIGHT or event.key == pygame.K_d)  and direction != "left":
                    x_new = snake_block
                    y_new = 0
                    direction = "right"
-                elif event.key == pygame.K_UP and direction != "down":
+                elif (event.key == pygame.K_UP or event.key == pygame.K_w) and direction != "down":
+                    x_new = 0
                     y_new = -snake_block
-                    x_new = 0
                     direction = "up"
-                elif event.key == pygame.K_DOWN and direction != "up":
-                    y_new = snake_block
+                elif (event.key == pygame.K_DOWN or event.key == pygame.K_s) and direction != "up":
                     x_new = 0
+                    y_new = snake_block
                     direction = "down"
                 elif event.key == pygame.K_q:
                         game_over = True
