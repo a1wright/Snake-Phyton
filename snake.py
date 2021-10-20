@@ -7,8 +7,7 @@ white = (255, 255, 255)
 green = (0,255,0)
 red = (255, 0, 0)                                                 
 black = (0, 0, 0)
-yellow1 = (0, 0, 0)
-yellow2 = (15, 15, 15)
+grey = (10, 10, 10)
 
 screen_width = 800
 screen_height = 670
@@ -75,11 +74,11 @@ def game_func():
                     game_over = True
                     game_close = True
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_q:                          # выход
+                    if (event.key == pygame.K_q or event.key == pygame.K_ESCAPE):    
                         game_over = True
                         game_close = False
                     if event.key == pygame.K_r:
-                        game_func()                                      # рестарт
+                        game_func() # рестарт
         
         # Управление
         for event in pygame.event.get():
@@ -103,7 +102,7 @@ def game_func():
                     x_new = 0
                     y_new = snake_block
                     direction = "down"
-                elif event.key == pygame.K_q:
+                elif (event.key == pygame.K_q or event.key == pygame.K_ESCAPE):
                         game_over = True
                         game_close = False
                 elif event.key == pygame.K_r:
@@ -121,9 +120,9 @@ def game_func():
         for row in range(blocks):
             for column in range(blocks):
                 if (column+ row)%2==0:
-                    color = yellow1
+                    color = black
                 else:
-                    color = yellow2    
+                    color = grey    
                 pygame.draw.rect(surface,color, [column*snake_block, row*snake_block, snake_block, snake_block]) 
 
 
