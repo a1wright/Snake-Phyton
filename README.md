@@ -2,7 +2,7 @@
 Змейка на Python
 
 <div align="center">
-<img src="https://github.com/a1wright/a1wright/blob/d8638324ce0d4dbde20b84a4a212f531028c2037/octo.gif" alt="GitHub Logo" width="600" height="400" />
+<img src="https://github.com/a1wright/Snake-Phyton/blob/478841c3586d15071625aab09d76f8ce4f0c53ed/snake.gif" alt="GitHub Logo" width="600" height="470" />
 </div>
 
 
