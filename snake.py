@@ -1,6 +1,5 @@
 import pygame
 import random
-import time
 
 pygame.init()                                                   
 
@@ -8,7 +7,9 @@ white = (255, 255, 255)
 green = (0,255,0)
 red = (255, 0, 0)                                                 
 black = (0, 0, 0)
- 
+yellow1 = (0, 0, 0)
+yellow2 = (15, 15, 15)
+
 screen_width = 800
 screen_height = 670
 work_screen_height = 600
@@ -21,6 +22,7 @@ clock = pygame.time.Clock()
 snake_block = 20
 speed = 15
 
+blocks = 40
  
 def upd_snake(snake_block, snake_list):
     for xs in snake_list:
@@ -47,7 +49,7 @@ def game_func():
  
     # Длина змейки
     snake_list = []
-    snake_Length = 1
+    snake_length = 1
     
     # Направление змейки
     direction = 'not'
@@ -115,6 +117,17 @@ def game_func():
         y += y_new
         surface.fill(black)  
 
+        # Поле в виде шахматной доски 
+        for row in range(blocks):
+            for column in range(blocks):
+                if (column+ row)%2==0:
+                    color = yellow1
+                else:
+                    color = yellow2    
+                pygame.draw.rect(surface,color, [column*snake_block, row*snake_block, snake_block, snake_block]) 
+
+
+
         # Обновление еды на экране
         pygame.draw.rect(surface, red, [food_x, food_y, snake_block, snake_block])  
 
@@ -123,7 +136,7 @@ def game_func():
         snake_head.append(y)
         snake_list.append(snake_head)
 
-        if len(snake_list) > snake_Length:
+        if len(snake_list) > snake_length:
             del snake_list[0]
             
         # Змейка сталкивается сама с собой
@@ -136,7 +149,7 @@ def game_func():
         # Cчет
         pygame.draw.rect(surface, white,(0, work_screen_height, screen_width, 20))
         score_font = pygame.font.SysFont(None, 35)
-        value = score_font.render("Счет: " + str(snake_Length - 1) , True, green)
+        value = score_font.render("Счет: " + str(snake_length - 1) , True, green)
         surface.blit(value, [10, screen_height-40])
 
            
@@ -147,7 +160,7 @@ def game_func():
         if x == food_x and y == food_y:
             food_x = round(random.randrange(0, screen_width - snake_block) / 20.0) * 20.0
             food_y = round(random.randrange(0, work_screen_height - snake_block) / 20.0) * 20.0
-            snake_Length += 1
+            snake_length += 1
       
         # ограничение fps
         clock.tick(speed)                                                           
