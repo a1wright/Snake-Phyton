@@ -72,7 +72,7 @@ def game_func():
             for event in pygame.event.get(): 
                 if event.type == pygame.QUIT:
                     game_over = True
-                    game_close = True
+                    game_close = False
                 if event.type == pygame.KEYDOWN:
                     if (event.key == pygame.K_q or event.key == pygame.K_ESCAPE):    
                         game_over = True
