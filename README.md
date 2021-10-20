@@ -1,6 +1,12 @@
 # Snake-Phyton
 Змейка на Python
 
+<div align="center">
+<img src="https://github.com/a1wright/a1wright/blob/d8638324ce0d4dbde20b84a4a212f531028c2037/octo.gif" alt="GitHub Logo" width="600" height="400" />
+</div>
+
+
+
 ## Запуск
 
 В корне проекта запустить команду:
